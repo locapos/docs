@@ -66,8 +66,6 @@ privateとkeyの組み合わせで最大2面の地図へ位置情報がプロッ
 - keyにgroups/new で生成されたID以外が設定されている場合
   * 403エラーを返す
 
-
-
 ### POST /api/locations/delete :lock:
 
 > 地図上から位置情報を削除する
@@ -75,6 +73,10 @@ privateとkeyの組み合わせで最大2面の地図へ位置情報がプロッ
 ||name|description|
 |---|---|---|
 ||key|位置情報を削除するマップID|
+
+#### response
+
+> ok
 
 #### 備考
 
@@ -103,6 +105,12 @@ privateとkeyの組み合わせで最大2面の地図へ位置情報がプロッ
 
 > 新しいグループハッシュを生成する
 
+#### response
+
+```javascript
+{"key": "group-hash"}
+```
+
 ## users
 
 ### GET /api/users/show :lock:
@@ -113,13 +121,47 @@ privateとkeyの組み合わせで最大2面の地図へ位置情報がプロッ
 |---|---|---|
 ||key||
 
+#### response
+
+```javascript
+[{"provider":"provider-name","id":"000000","name":"screen-name","latitude":35,"longitude":135,"heading":40}]
+```
+
 ### GET /api/users/me :lock:
 
 > 自分自身の情報を取得
 
+#### response
+
+```javascript
+{"provider":"provier-name","id":"0000000","name":"screen-name"}
+```
+
 ### GET /api/users/share :lock:
 
 > 自分自身の暗黙的なグループハッシュを取得する
+
+#### response
+
+```javascript
+{"key": "group-hash"}
+```
+
+### POST /api/users/update :lock:
+
+> 自分自身の情報をアップデートする
+
+||name|description|
+|---|---|---|
+||screen_name|Webサイト上の表示名|
+
+#### response
+
+> ok
+
+#### 備考
+
+`screen_name`に空文字列を指定してリクエストした場合、認証プロバイダから得られたデフォルトの表示名を復元します。
 
 ## map
 
