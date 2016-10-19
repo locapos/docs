@@ -41,7 +41,7 @@
 |---|---|---|
 |*|latitude||
 |*|longitude||
-|*|heading||
+||heading|省略時については備考参照|
 ||private|true or false。省略するとfalse|
 ||key| /api/groups/new で生成したID |
 
@@ -65,6 +65,12 @@ privateとkeyの組み合わせで最大2面の地図へ位置情報がプロッ
   * 任意グループへプロットされる
 - keyにgroups/new で生成されたID以外が設定されている場合
   * 403エラーを返す
+
+headingパラメタを省略した場合、サーバ側に前回位置情報がある場合についてのみheadingを自動計算する。
+ただし、位置情報は送信後5分で自動削除されるため、送信間隔が5分以上ある場合には一切計算されない。
+自動計算できなかった場合のheadingの値は0として扱われる。
+
+また、headingの値は0～360の間へ自動的に正規化される。
 
 ### POST /api/locations/delete :lock:
 
