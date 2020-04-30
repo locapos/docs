@@ -33,7 +33,7 @@
 
 ## locations
 
-### POST /api/locations/update :lock:
+### POST /api/locations/update &#x1f512;
 
  > 位置情報の送信。
 
@@ -42,6 +42,7 @@
 |*|latitude||
 |*|longitude||
 ||heading|省略時については備考参照|
+||posMode|GPS測位モード|
 ||private|true or false。省略するとfalse|
 ||key| /api/groups/new で生成したID |
 
@@ -72,7 +73,7 @@ headingパラメタを省略した場合、サーバ側に前回位置情報が�
 
 また、headingの値は0～360の間へ自動的に正規化される。
 
-### POST /api/locations/delete :lock:
+### POST /api/locations/delete &#x1f512;
 
 > 地図上から位置情報を削除する
 
@@ -119,7 +120,7 @@ headingパラメタを省略した場合、サーバ側に前回位置情報が�
 
 ## users
 
-### GET /api/users/show :lock:
+### GET /api/users/show &#x1f512;
 
 > 現在アクティブなユーザ一覧を取得
 
@@ -133,7 +134,7 @@ headingパラメタを省略した場合、サーバ側に前回位置情報が�
 [{"provider":"provider-name","id":"000000","name":"screen-name","latitude":35,"longitude":135,"heading":40}]
 ```
 
-### GET /api/users/me :lock:
+### GET /api/users/me &#x1f512;
 
 > 自分自身の情報を取得
 
@@ -143,7 +144,7 @@ headingパラメタを省略した場合、サーバ側に前回位置情報が�
 {"provider":"provier-name","id":"0000000","name":"screen-name"}
 ```
 
-### GET /api/users/share :lock:
+### GET /api/users/share &#x1f512;
 
 > 自分自身の暗黙的なグループハッシュを取得する
 
@@ -153,7 +154,7 @@ headingパラメタを省略した場合、サーバ側に前回位置情報が�
 {"key": "group-hash"}
 ```
 
-### POST /api/users/update :lock:
+### POST /api/users/update &#x1f512;
 
 > 自分自身の情報をアップデートする
 
