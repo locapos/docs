@@ -1,3 +1,3 @@
 # Locapos Developer Documents
 
-- [/api](API Reference)
+- [API Reference](/api)
